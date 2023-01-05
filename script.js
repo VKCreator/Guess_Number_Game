@@ -78,10 +78,29 @@ function checkValueInterval(event)
             event.target.value = itemValue.slice(0,maxlength); 
         }
 
-        if (isNumber(inputFinishInterval.value) && (parseInt(inputStartInterval.value) > parseInt(inputFinishInterval.value))) {
-            infoAboutMistake.textContent = "Поменяйте значения местами!"
-            infoAboutMistake.hidden = false
-            buttonInterval.setAttribute("disabled","true")
+
+        if (isNumber(inputFinishInterval.value) && isNumber(inputStartInterval.value)) 
+        {
+            let start = parseInt(inputStartInterval.value)
+            let finish = parseInt(inputFinishInterval.value)
+            let isMistake = false
+
+            if (start === finish) 
+            {
+                isMistake = true
+                infoAboutMistake.textContent = "Значения не могут быть равны!"
+            }
+            else if (start > finish) 
+            {
+                isMistake = true
+                infoAboutMistake.textContent = "Поменяйте значения местами!"
+            }
+
+            if(isMistake) 
+            {
+                infoAboutMistake.hidden = false
+                buttonInterval.setAttribute("disabled","true")
+            }
         }
     }
 }
@@ -161,6 +180,8 @@ function prepareGame()
 
 function restartGame() {
 
+    inputUserNumber.value=""
+    resText.textContent = "Здесь отобразится результат Вашей попытки!"
     infoAboutMistake.textContent = ""
     finishPanel.classList.add("d-none")
     panelInitInterval.classList.remove("d-none")
