@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid min-vh-100 d-flex flex-column align-items-center justify-content-center" id="mainBg">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h4>Guess Number Game</h4>
+            </div>
+        </div>
+        <div class="row p-3" id="panelInitInterval" style="max-width: 450px; min-width: 200px;">
+            <div class="col-12 mt-2">
+                <p>Установите границы интервала для генерации числа компьютером</p>
+            </div>
+            <div class="col-12">
+                <form role="form" novalidate>
+                    <div class="d-flex inputGap">
+                        <div class="mb-3">
+                            <label for="inputStartInterval" class="form-label bold-sm">Левая</label>
+                            <input type="number" class="form-control" id="inputStartInterval">
+                            <div id="startIntervalHelp" class="form-text"></div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="inputFinishInterval" class="form-label bold-sm">Правая</label>
+                            <input type="number" class="form-control" id="inputFinishInterval">
+                            <div id="finishIntervalHelp" class="form-text"></div>
+                          </div>
+                    </div>
+                    <button type="button" class="btn btn-primary mb-3" id="buttonInterval">Применить</button>
+                  </form>
+            </div>
+            <div class="col-12">
+                <div id="infoAboutMistake" class="bold"></div>
+            </div>
+        </div>
+        <div class="row p-3 d-none" id="game" style="max-width: 500px; min-width: 200px;">
+            <div class="col-12">
+                <label for="inputUserNumber" class="form-label">Ваше предполагаемое число</label>
+            </div>
+            <div class="col-8">
+                <div class="input-group mb-2">
+                    <input type="number" id="inputUserNumber" class="form-control" placeholder="Введите число...">
+                    <button class="btn btn-primary" type="button" id="buttonUserValue" disabled>ОК</button>
+                </div>
+                <div id="userNumberHelp" class="form-text"></div>
+            </div>
+            <div class="col-12 mb-1">
+                У Вас осталось попыток: <span class="bold" id="countTry">0</span>
+            </div>
+            <div class="col-12 mb-3">
+                Интервал: [<span id="startTip" class="bold">start</span>-<span id="finishTip" class="bold">finish</span>]
+            </div>
+            <div class="col-12 text-center result" id="resText">
+                Здесь отобразится результат Вашей попытки!
+            </div>
+        </div>
+        <div class="row p-3 d-none justify-content-center align-items-center" id="finishPanel">
+            <div class="col-12 text-center" id="finishRes">результат</div>
+            <div class="col-5 mt-3 d-flex justify-content-center">
+                <button class="btn btn-sm btn-primary" id="buttonAgain">Заново</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
