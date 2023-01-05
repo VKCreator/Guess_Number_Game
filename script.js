@@ -107,6 +107,8 @@ function checkValueInterval(event)
 
 function generateTimer(seconds) {
     infoAboutMistake.hidden = false
+    inputStartInterval.setAttribute("disabled","")
+    inputFinishInterval.setAttribute("disabled","")
     return function() {
         infoAboutMistake.textContent = "Компьютер загадывает число! Начало игры через: 00:0" + seconds
         seconds--;
@@ -185,4 +187,6 @@ function restartGame() {
     infoAboutMistake.textContent = ""
     finishPanel.classList.add("d-none")
     panelInitInterval.classList.remove("d-none")
+    inputStartInterval.removeAttribute("disabled")
+    inputFinishInterval.removeAttribute("disabled")
 }
